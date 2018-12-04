@@ -12,7 +12,7 @@ export default function () {
       category: 'Estate',
       bedrooms: 15,
       image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
-      decription: "This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests."
+      description: "This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests."
     }
       }, {
     type: 'rentals',
@@ -54,4 +54,9 @@ export default function () {
       };
     }
   });
+  
+  this.get('/rentals/:id', function (db, request) {
+    return { data: rentals.find((rental) => request.params.id === rental.id) };
+  });
+  
 }
